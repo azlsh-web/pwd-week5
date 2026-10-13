@@ -1,0 +1,208 @@
+/* ── Week1: * 전체 선택자 ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Week1: body 태그 선택자 ── */
+body {
+  font-family: Arial, 'Malgun Gothic', sans-serif;
+  color: #333;
+  background: #f0f2f5;
+  /* Week3: place-items로 가운데 정렬 */
+  min-height: 100vh;
+  display: grid;
+  place-items: start center;
+}
+
+/* ── Week1: header 태그 선택자 ── */
+header {
+  background: #4f46e5;
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  /* Week3: clamp() — 화면 크기에 따라 글자 크기 자동 조절 */
+  font-size: clamp(20px, 4vw, 28px);
+}
+
+/* ── Week3: ID 선택자 ── */
+#count {
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ── Week1: main 태그 선택자 ── */
+main {
+  /* Week3: min() — 최대 너비 제한 */
+  width: min(100% - 32px, 560px);
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Week1: section 태그 선택자 ── */
+section {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ── 입력 영역 ── */
+.input-section {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Week3: 속성 선택자 ── */
+input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+/* ── Week3: :focus-visible 가상 클래스 ── */
+input[type="text"]:focus-visible {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* ── 필터 버튼 영역 ── */
+.filter-section {
+  /* Week3: CSS Grid + repeat + minmax ── */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* ── Week3: 클래스 선택자 ── */
+.filter-btn {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ── Week3: 속성 선택자 — data-filter 버튼 전체 ── */
+button[data-filter] {
+  transition: background 0.15s;
+}
+
+/* ── Week1: button:hover 가상 클래스 ── */
+button:hover {
+  filter: brightness(0.95);
+}
+
+/* ── Week3: button:active 가상 클래스 ── */
+button:active {
+  filter: brightness(0.85);
+}
+
+/* ── Week3: :focus-visible ── */
+button:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* ── 활성 필터 버튼: 클래스 선택자 ── */
+.filter-btn.active {
+  background: #4f46e5;
+  color: white;
+  border-color: #4f46e5;
+}
+
+/* ── 추가 버튼 ── */
+#add-btn {
+  padding: 10px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── 목록 ── */
+.list-section {
+  min-height: 60px;
+}
+
+/* Week3: ID 선택자 */
+#todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── 개별 할 일 항목: 클래스 선택자 ── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+/* ── 조합 선택자: .todo-item 안에 있는 span만 ── */
+.todo-item span {
+  flex: 1;
+  font-size: 15px;
+}
+
+/* ── 완료된 항목: 클래스 선택자 ── */
+.todo-item.done span {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* ── Week3: data-* 속성 선택자로 삭제 버튼만 ── */
+button[data-action="delete"] {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+/* ── 완료 체크박스 ── */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #4f46e5;
+}
+
+/* ── 빈 메시지 ── */
+#empty-message {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 1rem 0;
+}
+
+/* ── Week1: footer 태그 선택자 ── */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #9ca3af;
+  font-size: 13px;
+}
